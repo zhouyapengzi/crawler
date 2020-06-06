@@ -1,0 +1,3 @@
+JobName,ID,URL,TimeStamp,Result,Test_TotalCount,Test_SkipCount,test_FailCount
+CXF-Master-JDK15 #160,160,https://builds.apache.org/view/C/view/Apache%20CXF/job/CXF-Master-JDK15/160/,2020-06-05T09:06:05.053000,UNSTABLE,11298,58,18
+CXF-Master-JDK15 #159,159,https://builds.apache.org/view/C/view/Apache%20CXF/job/CXF-Master-JDK15/159/,2020-06-04T08:52:53.530000,UNSTABLE,11298,58,19
