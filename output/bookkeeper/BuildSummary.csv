@@ -1,0 +1,16 @@
+JobName,ID,URL,TimeStamp,Result,Test_TotalCount,Test_SkipCount,test_FailCount
+bookkeeper_postcommit_master_java8 #886,886,https://builds.apache.org/view/B/view/BookKeeper/job/bookkeeper_postcommit_master_java8/886/,2020-06-06T12:11:00.907000,ABORTED,2022,21,0
+bookkeeper_postcommit_master_java8 #885,885,https://builds.apache.org/view/B/view/BookKeeper/job/bookkeeper_postcommit_master_java8/885/,2020-06-05T12:11:00.912000,ABORTED,2022,21,0
+bookkeeper_postcommit_master_java8 #884,884,https://builds.apache.org/view/B/view/BookKeeper/job/bookkeeper_postcommit_master_java8/884/,2020-06-04T12:11:00.912000,ABORTED,2017,21,0
+bookkeeper_postcommit_master_java8 #883,883,https://builds.apache.org/view/B/view/BookKeeper/job/bookkeeper_postcommit_master_java8/883/,2020-06-03T12:11:00.940000,ABORTED,2022,21,0
+bookkeeper_postcommit_master_java8 #882,882,https://builds.apache.org/view/B/view/BookKeeper/job/bookkeeper_postcommit_master_java8/882/,2020-06-02T12:11:00.908000,ABORTED,2017,21,0
+bookkeeper_postcommit_master_java8 #881,881,https://builds.apache.org/view/B/view/BookKeeper/job/bookkeeper_postcommit_master_java8/881/,2020-06-01T12:11:00.905000,FAILURE,227,0,0
+bookkeeper_postcommit_master_java8 #880,880,https://builds.apache.org/view/B/view/BookKeeper/job/bookkeeper_postcommit_master_java8/880/,2020-05-31T12:11:00.909000,FAILURE,227,0,0
+bookkeeper_postcommit_master_java8 #879,879,https://builds.apache.org/view/B/view/BookKeeper/job/bookkeeper_postcommit_master_java8/879/,2020-05-30T12:11:00.902000,ABORTED,2022,21,0
+bookkeeper_postcommit_master_java8 #878,878,https://builds.apache.org/view/B/view/BookKeeper/job/bookkeeper_postcommit_master_java8/878/,2020-05-29T12:11:00.899000,ABORTED,2022,21,0
+bookkeeper_postcommit_master_java8 #877,877,https://builds.apache.org/view/B/view/BookKeeper/job/bookkeeper_postcommit_master_java8/877/,2020-05-28T12:11:00.890000,ABORTED,2022,21,0
+bookkeeper_postcommit_master_java8 #876,876,https://builds.apache.org/view/B/view/BookKeeper/job/bookkeeper_postcommit_master_java8/876/,2020-05-27T12:11:00.901000,ABORTED,1910,21,1
+bookkeeper_postcommit_master_java8 #875,875,https://builds.apache.org/view/B/view/BookKeeper/job/bookkeeper_postcommit_master_java8/875/,2020-05-26T12:11:00.915000,ABORTED,2007,21,0
+bookkeeper_postcommit_master_java8 #874,874,https://builds.apache.org/view/B/view/BookKeeper/job/bookkeeper_postcommit_master_java8/874/,2020-05-25T12:11:00.949000,ABORTED,2012,21,0
+bookkeeper_postcommit_master_java8 #873,873,https://builds.apache.org/view/B/view/BookKeeper/job/bookkeeper_postcommit_master_java8/873/,2020-05-24T12:11:00.931000,ABORTED,2012,21,0
+bookkeeper_postcommit_master_java8 #306,306,https://builds.apache.org/view/B/view/BookKeeper/job/bookkeeper_postcommit_master_java8/306/,2018-11-02T12:11:00.457000,SUCCESS,2686,16,0

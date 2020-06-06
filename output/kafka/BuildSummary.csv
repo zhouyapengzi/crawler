@@ -1,0 +1,12 @@
+JobName,ID,URL,TimeStamp,Result,Test_TotalCount,Test_SkipCount,test_FailCount
+kafka-trunk-jdk11 #1546,1546,https://builds.apache.org/job/kafka-trunk-jdk11/1546/,2020-06-06T16:26:10.658000,SUCCESS,14259,73,0
+kafka-trunk-jdk11 #1545,1545,https://builds.apache.org/job/kafka-trunk-jdk11/1545/,2020-06-06T04:26:09.777000,FAILURE,14258,73,2
+kafka-trunk-jdk11 #1544,1544,https://builds.apache.org/job/kafka-trunk-jdk11/1544/,2020-06-05T23:01:59.727000,SUCCESS,14258,73,0
+kafka-trunk-jdk11 #1543,1543,https://builds.apache.org/job/kafka-trunk-jdk11/1543/,2020-06-05T21:36:28.785000,FAILURE,10449,71,1
+kafka-trunk-jdk11 #1542,1542,https://builds.apache.org/job/kafka-trunk-jdk11/1542/,2020-06-05T20:12:50.402000,FAILURE,10442,71,0
+kafka-trunk-jdk11 #1541,1541,https://builds.apache.org/job/kafka-trunk-jdk11/1541/,2020-06-05T17:31:27.628000,FAILURE,14241,73,1
+kafka-trunk-jdk11 #1540,1540,https://builds.apache.org/job/kafka-trunk-jdk11/1540/,2020-06-05T16:39:30.430000,FAILURE,0,0,0
+kafka-trunk-jdk11 #1539,1539,https://builds.apache.org/job/kafka-trunk-jdk11/1539/,2020-06-05T03:14:43.896000,SUCCESS,14241,73,0
+kafka-trunk-jdk11 #1538,1538,https://builds.apache.org/job/kafka-trunk-jdk11/1538/,2020-06-04T23:26:10.634000,SUCCESS,14240,73,0
+kafka-trunk-jdk11 #1537,1537,https://builds.apache.org/job/kafka-trunk-jdk11/1537/,2020-06-04T20:58:18.199000,FAILURE,14238,73,1
+kafka-trunk-jdk11 #1485,1485,https://builds.apache.org/job/kafka-trunk-jdk11/1485/,2020-05-21T16:26:09.197000,FAILURE,0,0,0
