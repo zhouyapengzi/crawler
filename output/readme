@@ -1,0 +1,5 @@
+the crawled result. 
+In each folder:
+BuildSummary.csv is the summary for all valid builds of the specified job in jenkins. 
+buildnumber_detail_bk.json is the json result returned from jenkins. store here as backup in case the result is auto removed in jekins.
+buildnumber.csv contains two column: test class and duration. This file will be used for future research analyze.
