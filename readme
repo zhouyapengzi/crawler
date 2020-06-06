@@ -1,0 +1,11 @@
+usage: jenkins.py [-h] jenkins_url job_name project_name
+
+crawl test result from jenkins
+
+positional arguments:
+  jenkins_url   url in jenkins
+  job_name      The job name you want to crawl. e.g.Hive-linux-ARM-trunk
+  project_name  name of the project. e.g. hive
+
+optional arguments:
+  -h, --help    show this help message and exit

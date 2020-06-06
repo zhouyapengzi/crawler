@@ -134,9 +134,9 @@ def create_output_directory(project):
 
 def main(argv):
     parser = argparse.ArgumentParser(description='crawl test result from jenkins')
-    parser.add_argument('url', type=str, metavar='e.g.: https://builds.apache.org/view/H-L/view/Hive/',help='hive url in jenkins')
-    parser.add_argument('job_info',type=str, metavar="e.g.: Hive-linux-ARM-trunk",help='Hive daily build job name')
-    parser.add_argument('project_name',type=str,metavar='e.g.: hive', help='name of the project. will create a folder with this project name in output directoory')
+    parser.add_argument('url', type=str, metavar='jenkins_url',help='url in jenkins')
+    parser.add_argument('job_info',type=str, metavar="job_name",help='The job name you want to crawl. e.g.Hive-linux-ARM-trunk ')
+    parser.add_argument('project_name',type=str,metavar='project_name', help='name of the project. e.g. hive')
     args = parser.parse_args(argv)
 
     url = args.url
