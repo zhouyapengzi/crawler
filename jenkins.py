@@ -12,7 +12,7 @@ def get_build(jenkins_url, output_directory):
     response = json.loads(requests.get(jenkins_url).text)
     builds = []
     output_file = os.path.join(output_directory,'BuildSummary.csv')
-    with open(output_file, 'w') as wf:
+    with open(output_file, 'a') as wf:
         wf_writer = csv.writer(wf)
         wf_writer.writerow(["JobName","ID","URL","TimeStamp","Result","Test_TotalCount",'Test_SkipCount','test_FailCount'])
         for build in response["builds"]:
@@ -55,12 +55,16 @@ def get_test_report_cxf(builds, output_directory):
             continue
         response = json.loads(requests.get(build_slow_url).text)
 
-        output_detail_file = open(os.path.join(output_directory, build_no + '_detail_bk.json'), 'w')
-        output_detail_file.write(json.dumps(response, indent=4, sort_keys=True))
-        output_detail_file.close()
-        logging.info("store raw crawl info as json to :" + output_detail_file.name)
+        out_file = os.path.join(output_directory, build_no + '_detail_bk.json')
+        if not os.path.exists(out_file):
+            output_detail_file = open(out_file, 'w')
+            output_detail_file.write(json.dumps(response, indent=4, sort_keys=True))
+            output_detail_file.close()
+            logging.info("store raw crawl info as json to :" + output_detail_file.name)
 
         out = os.path.join(output_directory, build_no + '.csv')
+        if os.path.exists(out):
+            continue
         with open(out, 'w') as of:
             file_writer = csv.writer(of)
             file_writer.writerow(['ClassName', 'Duration'])
@@ -100,12 +104,16 @@ def get_test_report(builds,output_directory):
         if 'junit.TestResult' not in test_response['_class']:
             test_response = json.loads(requests.get(build_slow_url).text)
 
-        output_detail_file = open(os.path.join(output_directory,build_no+'_detail_bk.json'), 'w')
-        output_detail_file.write(json.dumps(test_response, indent=4, sort_keys=True))
-        output_detail_file.close()
-        logging.info("store raw crawl info as json to :" + output_detail_file.name)
-
+        out_file = os.path.join(output_directory, build_no + '_detail_bk.json')
+        if not os.path.exists(out_file):
+            output_detail_file = open(out_file, 'w')
+            output_detail_file.write(json.dumps(test_response, indent=4, sort_keys=True))
+            output_detail_file.close()
+            logging.info("store raw crawl info as json to :" + output_detail_file.name)
+        
         out = os.path.join(output_directory, build_no+'.csv')
+        if os.path.exists(out):
+            continue
         with open(out, 'w') as of:
             file_writer = csv.writer(of)
             file_writer.writerow(['ClassName','Duration'])
@@ -150,7 +158,7 @@ def main(argv):
     jenkins_url = url + 'job/' + job_info + '/api/json?depth=2'
     builds = get_build(jenkins_url, output_directory)
 
-    if project_name == 'CXF':
+    if project_name == 'CXF' or project_name == 'bookkeeper':
         get_test_report_cxf(builds, output_directory)
 
     else:
