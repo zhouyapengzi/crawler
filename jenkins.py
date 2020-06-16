@@ -172,5 +172,5 @@ if __name__ == '__main__':
     # sys.argv = ['jenkins.py','https://builds.apache.org/view/H-L/view/Hive/', 'Hive-linux-ARM-trunk', 'hive']
     # sys.argv = ['jenkins.py','https://builds.apache.org/view/C/view/Apache%20CXF/','CXF-Master-JDK15','CXF']
     # sys.argv = ['jenkins.py', 'https://jenkins.webtide.net/job/nightlies/', 'jetty-10.0.x-windows-nightly', 'jetty']
-    sys.argv = ['jenkins.py', 'https://ci.eclipse.org/californium/', 'californium-master-nightly', 'californium']
+    # sys.argv = ['jenkins.py', 'https://ci.eclipse.org/californium/', 'californium-master-nightly', 'californium']
     main(sys.argv[1:])
