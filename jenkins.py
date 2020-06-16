@@ -110,7 +110,7 @@ def get_test_report(builds,output_directory):
             output_detail_file.write(json.dumps(test_response, indent=4, sort_keys=True))
             output_detail_file.close()
             logging.info("store raw crawl info as json to :" + output_detail_file.name)
-        
+
         out = os.path.join(output_directory, build_no+'.csv')
         if os.path.exists(out):
             continue
@@ -157,6 +157,8 @@ def main(argv):
         url += '/'
     jenkins_url = url + 'job/' + job_info + '/api/json?depth=2'
     builds = get_build(jenkins_url, output_directory)
+    print()
+
 
     if project_name == 'CXF' or project_name == 'bookkeeper':
         get_test_report_cxf(builds, output_directory)
@@ -168,5 +170,7 @@ def main(argv):
 if __name__ == '__main__':
     logging.getLogger().setLevel(getattr(logging, 'INFO'))
     # sys.argv = ['jenkins.py','https://builds.apache.org/view/H-L/view/Hive/', 'Hive-linux-ARM-trunk', 'hive']
-    #sys.argv = ['jenkins.py','https://builds.apache.org/view/C/view/Apache%20CXF/','CXF-Master-JDK15','CXF']
+    # sys.argv = ['jenkins.py','https://builds.apache.org/view/C/view/Apache%20CXF/','CXF-Master-JDK15','CXF']
+    # sys.argv = ['jenkins.py', 'https://jenkins.webtide.net/job/nightlies/', 'jetty-10.0.x-windows-nightly', 'jetty']
+    sys.argv = ['jenkins.py', 'https://ci.eclipse.org/californium/', 'californium-master-nightly', 'californium']
     main(sys.argv[1:])
