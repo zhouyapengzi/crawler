@@ -1,0 +1,11 @@
+JobName,ID,URL,TimeStamp,Result,Test_TotalCount,Test_SkipCount,test_FailCount
+californium-master-nightly #350,350,https://ci.eclipse.org/californium/job/californium-master-nightly/350/,2020-06-16T06:46:20.789000,SUCCESS,1597,6,0
+californium-master-nightly #349,349,https://ci.eclipse.org/californium/job/californium-master-nightly/349/,2020-06-15T06:46:33.282000,SUCCESS,1575,6,0
+californium-master-nightly #348,348,https://ci.eclipse.org/californium/job/californium-master-nightly/348/,2020-06-14T06:46:47.396000,SUCCESS,1575,6,0
+californium-master-nightly #347,347,https://ci.eclipse.org/californium/job/californium-master-nightly/347/,2020-06-13T06:47:39.023000,SUCCESS,1575,6,0
+californium-master-nightly #346,346,https://ci.eclipse.org/californium/job/californium-master-nightly/346/,2020-06-12T06:46:44.090000,SUCCESS,1575,6,0
+californium-master-nightly #345,345,https://ci.eclipse.org/californium/job/californium-master-nightly/345/,2020-06-11T06:46:25.115000,SUCCESS,1575,6,0
+californium-master-nightly #344,344,https://ci.eclipse.org/californium/job/californium-master-nightly/344/,2020-06-10T06:46:37.315000,SUCCESS,1575,6,0
+californium-master-nightly #343,343,https://ci.eclipse.org/californium/job/californium-master-nightly/343/,2020-06-09T06:46:20.846000,SUCCESS,1575,6,0
+californium-master-nightly #342,342,https://ci.eclipse.org/californium/job/californium-master-nightly/342/,2020-06-08T06:46:55.159000,SUCCESS,1575,6,0
+californium-master-nightly #341,341,https://ci.eclipse.org/californium/job/californium-master-nightly/341/,2020-06-07T06:46:00.126000,SUCCESS,1575,6,0
