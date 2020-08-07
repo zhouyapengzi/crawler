@@ -78,11 +78,11 @@ def get_test_report_cxf(builds, output_directory):
                     if 'junit.TestResult' in test_response['_class']:
                         cases = test_response['suites']
                         for case in cases:
-                            class_duration = 0
-                            class_name = ""
-                            for tests in case['cases']:
-                                class_duration += tests['duration']
-                                class_name = tests['className']
+                            class_duration = cases['duration']
+                            class_name = cases['name']
+                            # for tests in case['cases']:
+                            #     # class_duration += tests['duration']
+                            #     # class_name = tests['name']
                             file_writer.writerow([class_name, str(class_duration)])
         of.close()
         logging.info("test result saved to file: " + out)
@@ -93,7 +93,7 @@ def get_test_report(builds,output_directory):
         build_no = build_url[build_url[:build_url.rfind('/')].rfind('/') + 1: build_url.rfind('/')]
 
         build_slow_url = build_url + 'testReport/api/json?depth=2'
-        build_fast_url = build_url + 'testReport/api/json?tree=suites[cases[className,name,duration,status,skipped]]'
+        build_fast_url = build_url  + 'testReport/api/json?tree=suites[cases[className,name,duration,status,skipped]]'
 
         if not verify_test_report_exist(build_slow_url):
             logging.info("build has no test report, skip:" + build_slow_url)

@@ -4,9 +4,9 @@ import re
 import os
 import csv
 import argparse,sys
+import json
 
-
-total_builds_need_to_collect = 25
+total_builds_need_to_collect = 200
 def get_all_builds(travis_url, headers):
     builds = []
     total_collect_builds = 0
@@ -96,9 +96,10 @@ def analyze_job(build, headers, output_directory, project_name):
 
                 # for flink:
                 if project_name =='flink':
-                    if job['stage']['name'] == 'compile' or job['stage']['name'] == 'cleanup':
-                        logging.info('skip.')
-                        continue
+                    if job['stage'] != None :
+                        if job['stage']['name'] == 'compile' or job['stage']['name'] == 'cleanup':
+                            logging.info('skip.')
+                            continue
                     job_id = job['id']
                     log_url = 'https://api.travis-ci.com/v3/job/' + str(job_id) + '/log'
                     log_response = requests.get(log_url, headers)
@@ -108,8 +109,18 @@ def analyze_job(build, headers, output_directory, project_name):
                     log_url = 'https://api.travis-ci.org/v3/job/' + str(job_id) + '/log'
                     log_response = requests.get(log_url)
 
+                if job['id'] == 703188706:
+                    print()
+
                 if log_response.ok:
                     log = log_response.json()
+
+                    out_file = os.path.join(output_directory, str(build['id']) + '_detail_bk.json')
+                    if not os.path.exists(out_file):
+                        output_detail_file = open(out_file, 'w')
+                        output_detail_file.write(json.dumps(log, indent=4, sort_keys=True))
+                        output_detail_file.close()
+
                     log_content = log['content']
                     if log_content is not None:
                         if project_name == 'flink':
@@ -158,6 +169,10 @@ def find_test_log_flink(log_content):
         # test['test_errors'] = t[6]
         # test['test_skip'] = t[8]
         test['test_duration'] = t[11]
+        try:
+            test['test_duration'] = float(test['test_duration'] )
+        except:
+            continue
         test['test_class'] = t[-1]
         if test['test_class'] in keys:
             for tmp in tests:
@@ -220,9 +235,13 @@ def find_test_log_cucumber(log_content):
         # print(test_log)
         # test_log = remove_color_code(test_log)
         test_log = test_log.replace(',', ' ')
-        # print(test_log)
+        print(test_log)
         t = test_log.split()
         test['test_duration'] = t[11]
+        try:
+            test['test_duration'] = float(test['test_duration'] )
+        except:
+            continue
         test['test_class'] = t[-1]
         if test['test_class'] in keys:
             for tmp in tests:
@@ -249,34 +268,7 @@ def remove_color_code(s):
     result = ansi_escape.sub('',s)
     return result
 
-# def find_test_log_guava(log_content):
-#     tests = []
-#     keys = []
-#     #test_regex = re.compile('Tests\srun:\s\d*,\sFailures:\s\d*,\sErrors:\s\d*,\sSkipped:\s\d*,\sTime\selapsed:\s\d*[\.]\d*.*?\\n')
-#     test_regex = re.compile('Running\s.*?\nTests\srun:\s\d*,\sFailures:\s\d*,\sErrors:\s\d*,\sSkipped:\s\d*,\sTime\selapsed:\s\d*[\.]\d*.*?\n')
-#     test_logs = test_regex.findall(log_content)
-#     if test_logs is None:
-#         logging.info('found no tests in the job.... maybe need to manual check')
-#         return
-#
-#     print(len(test_logs))
-#     for test_log in test_logs:
-#         test = {}
-#         print(test_log)
-#         test_log = test_log.replace('\n', ' ')
-#         test_log = test_log.replace(',', ' ')
-#
-#         t = test_log.split()
-#         test['test_duration'] = t[13]
-#         test['test_class'] = t[1]
-#         if test['test_class'] in keys:
-#             for tmp in tests:
-#                 if tmp['test_class'] == test['test_class']:
-#                     tmp['test_duration'] += test['test_duration']
-#         else:
-#             tests.append(test)
-#             keys.append(test['test_class'])
-#     return tests
+
 
 
 def create_output_directory(project):
@@ -314,6 +306,6 @@ def main(argv):
 
 if __name__ == '__main__':
     logging.getLogger().setLevel(getattr(logging, 'INFO'))
-    # sys.argv = ['travis.py', 'cucumber']
+    #sys.argv = ['travis.py', 'cucumber']
     main(sys.argv[1:])
 

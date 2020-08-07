@@ -21,5 +21,7 @@ python travis.py jclouds
 
 python travis.py flink
 
+python travis.py cucumber
+
 
 
